@@ -72,7 +72,7 @@ func (f *File) open() error {
 // rotate on new day
 func (f *File) reopenIfNeeded() error {
 	t := time.Now().UTC()
-	if t.Year() == f.year && t.Month() == f.month {
+	if t.Year() == f.year && int(t.Month()) == f.month {
 		return nil
 	}
 	err := f.close(true)
